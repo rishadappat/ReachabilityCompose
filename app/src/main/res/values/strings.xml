@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ConnectionCompose</string>
+    <string name="title_activity_next">NextActivity</string>
+</resources>

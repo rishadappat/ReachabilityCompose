@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">connectivity</string>
+    <string name="no_internet">Please check your internet connection.</string>
+    <string name="status_online">Online</string>
+</resources>
