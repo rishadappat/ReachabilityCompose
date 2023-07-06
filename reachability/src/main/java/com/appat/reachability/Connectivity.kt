@@ -139,7 +139,7 @@ fun ComponentActivity.setNetworkListenerContent(content: @Composable () -> Unit)
     }
 }
 
-val Context.currentConnectivityState: ReachabilityState
+private val Context.currentConnectivityState: ReachabilityState
     get() {
         val connectivityManager =
             getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -195,7 +195,7 @@ fun Context.observeReachabilityAsFlow() = callbackFlow {
     }
 }
 
-fun networkCallback(callback: (ReachabilityState) -> Unit): ConnectivityManager.NetworkCallback {
+private fun networkCallback(callback: (ReachabilityState) -> Unit): ConnectivityManager.NetworkCallback {
     return object : ConnectivityManager.NetworkCallback() {
         override fun onAvailable(network: Network) {
             Log.d("onAvailable", network.toString())
