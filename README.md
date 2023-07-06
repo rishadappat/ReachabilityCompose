@@ -1,5 +1,7 @@
 # ReachabilityCompose
 
+### ReachabilityCompose makes it easier to implement network listener in Jetpack compose. You can implement the listener with a single line of code without any additional configuration or permissions.
+
 [![](https://jitpack.io/v/rishadappat/ReachabilityCompose.svg)](https://jitpack.io/#rishadappat/ReachabilityCompose)
 
 
