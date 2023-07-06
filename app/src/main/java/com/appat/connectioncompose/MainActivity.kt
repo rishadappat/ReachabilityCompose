@@ -1,31 +1,40 @@
 package com.appat.connectioncompose
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.ElevatedButton
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import com.appat.connectioncompose.navigation.NavigationGraph
 import com.appat.connectioncompose.ui.theme.ConnectionComposeTheme
 import com.appat.reachability.setNetworkListenerContent
 
 class MainActivity : ComponentActivity() {
+    @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setNetworkListenerContent {
             ConnectionComposeTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    MainActivityContent()
+                    Scaffold(
+                        topBar = {
+                            TopAppBar(title = {
+                                Text("PhotoGrid")
+                            })
+                        }
+                    ) { contentPadding ->
+                        MainActivityContent(contentPadding)
+                    }
                 }
             }
         }
@@ -33,25 +42,11 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MainActivityContent() {
-    val context = LocalContext.current
-    Column(modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally) {
-//        ConnectivityStatus()
-        ElevatedButton(onClick = {
-            val intent = Intent(context, NextActivity::class.java)
-            context.startActivity(intent)
-        }) {
-            Text(text = "Next")
-        }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ConnectionComposeTheme {
-        MainActivityContent()
+fun MainActivityContent(contentPadding: PaddingValues) {
+    val navController = rememberNavController()
+    Box(modifier = Modifier
+        .fillMaxSize()
+        .padding(contentPadding)){
+        NavigationGraph(navController = navController)
     }
 }
