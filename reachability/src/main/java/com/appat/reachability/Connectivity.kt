@@ -1,5 +1,6 @@
 package com.appat.reachability
 
+import android.app.Activity
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.Network
@@ -38,6 +39,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -163,13 +165,13 @@ fun Context.observeReachabilityAsFlow() = callbackFlow {
         if(connectionState == ReachabilityState.Unavailable) {
             this.launch {
                 delay(1000)
-                trySend(connectionState)
+                trySend(currentConnectivityState)
             }
         }
         else {
             this.launch {
                 delay(1000)
-                trySend(connectionState)
+                trySend(currentConnectivityState)
             }
         }
     }
