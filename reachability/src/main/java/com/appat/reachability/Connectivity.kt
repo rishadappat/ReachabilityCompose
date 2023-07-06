@@ -158,7 +158,7 @@ private fun getCurrentReachabilityState(
 }
 
 @ExperimentalCoroutinesApi
-fun Context.observeReachabilityAsFlow() = callbackFlow {
+private fun Context.observeReachabilityAsFlow() = callbackFlow {
     val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
     val callback = networkCallback { connectionState ->
