@@ -1,7 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("maven-publish")
+    `maven-publish`
 }
 
 android {
@@ -12,15 +12,9 @@ android {
         minSdk = 24
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-    afterEvaluate {
-        publishing {
-            publications {
-                create<MavenPublication>("maven") {
-                    groupId = "com.github.rishadappat"
-                    artifactId = "ReachabilityCompose"
-                    version = "0.1.2"
-                }
-            }
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
         }
     }
     buildTypes {
