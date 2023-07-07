@@ -1,7 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    `maven-publish`
+    id("maven-publish")
 }
 
 android {
@@ -11,11 +11,6 @@ android {
     defaultConfig {
         minSdk = 24
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-        }
     }
     buildTypes {
         release {
