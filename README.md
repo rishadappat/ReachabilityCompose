@@ -10,7 +10,7 @@ Step 1. Add the dependency
 	}
 
 
-Step 3. Replace
+Step 2. Replace
 
 	setContent{
  
