@@ -67,10 +67,14 @@ afterEvaluate {
         }
     }
 }
-
-ext["signing.keyId"] = rootProject.ext["signing.keyId"]
-ext["signing.password"] = rootProject.ext["signing.password"]
-ext["signing.secretKeyRingFile"] = rootProject.ext["signing.secretKeyRingFile"]
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+def keyId = properties.getProperty('signing.keyId')
+def password = properties.getProperty('signing.password')
+def secretKeyRingFile = properties.getProperty('signing.secretKeyRingFile')
+ext["signing.keyId"] = keyId
+ext["signing.password"] = password
+ext["signing.secretKeyRingFile"] = secretKeyRingFile
 
 signing {
     sign publishing.publications
