@@ -25,12 +25,12 @@ Step 2. Replace
 Thats it.
 
 
-If you want to show the message in any other place, you can use the below compose.
+If you want to show the message in any other view, you can use the below compose.
 
 	ReachabilityStatus(modifier = Modifier)
 
 
-If you want only the network state, use the below code.
+If you want only the network state, use the below method.
 
  	val connection by reachabilityState()
 
