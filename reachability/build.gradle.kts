@@ -4,6 +4,24 @@ plugins {
     id("maven-publish")
 }
 
+val PUBLISH_GROUP_ID by extra { "in.appat" }
+val PUBLISH_VERSION by extra { "0.1.0" }
+val PUBLISH_ARTIFACT_ID by extra { "ReachabilityCompose" }
+val PUBLISH_DESCRIPTION by extra { "A jetpack compose library which will help the user to listen for the network changes and show a message if needed." }
+val PUBLISH_URL by extra { "https://github.com/rishadappat/ReachabilityCompose" }
+val PUBLISH_LICENSE_NAME by extra { "Apache License" }
+val PUBLISH_LICENSE_URL by extra { "https://github.com/rishadappat/ReachabilityCompose/blob/main/LICENSE" }
+val PUBLISH_DEVELOPER_ID by extra { "rishadappat" }
+val PUBLISH_DEVELOPER_NAME by extra { "Rishad Appat" }
+val PUBLISH_DEVELOPER_EMAIL by extra { "rishadappat@gmail.com" }
+val PUBLISH_SCM_CONNECTION by extra { "scm:git:github.com/rishadappat/ReachabilityCompose.git" }
+val PUBLISH_SCM_DEVELOPER_CONNECTION by extra { "scm:git:ssh://github.com/rishadappat/ReachabilityCompose.git" }
+val PUBLISH_SCM_URL by extra { "https://github.com/rishadappat/ReachabilityCompose/tree/main" }
+
+apply {
+    from("${rootProject.projectDir}/scripts/publish-module.gradle")
+}
+
 android {
     namespace = "com.appat.connectivity"
     compileSdk = 34
