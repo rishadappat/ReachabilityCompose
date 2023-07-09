@@ -6,7 +6,7 @@
 Step 1. Add the dependency
 
 	dependencies {
-	        implementation("in.appat:ReachabilityCompose:0.1.0")
+	        implementation("in.appat:ReachabilityCompose:0.1.1")
 	}
 
 
