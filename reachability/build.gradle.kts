@@ -4,7 +4,7 @@ plugins {
 }
 
 val PUBLISH_GROUP_ID by extra { "in.appat" }
-val PUBLISH_VERSION by extra { "0.1.0" }
+val PUBLISH_VERSION by extra { "0.1.1" }
 val PUBLISH_ARTIFACT_ID by extra { "ReachabilityCompose" }
 val PUBLISH_DESCRIPTION by extra { "A jetpack compose library which will help the user to listen for the network changes and show a message if needed." }
 val PUBLISH_URL by extra { "https://github.com/rishadappat/ReachabilityCompose" }
