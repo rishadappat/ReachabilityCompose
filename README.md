@@ -2,27 +2,15 @@
 
 ### ReachabilityCompose makes it easier to implement network listener in Jetpack compose. You can implement the listener with a single line of code without any additional configuration or permissions.
 
-[![](https://jitpack.io/v/rishadappat/ReachabilityCompose.svg)](https://jitpack.io/#rishadappat/ReachabilityCompose)
 
-
-Step 1. Add the JitPack repository to your build file
-
-Add it in your root build.gradle at the end of repositories:
-
-	allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
-Step 2. Add the dependency
+Step 1. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.rishadappat:ReachabilityCompose:0.1.0'
+	        implementation("in.appat:ReachabilityCompose:0.1.0")
 	}
 
 
-Step 3. Replace
+Step 2. Replace
 
 	setContent{
  
@@ -37,12 +25,12 @@ Step 3. Replace
 Thats it.
 
 
-If you want to show the message in any other place, you can use the below compose.
+If you want to show the message in any other view, you can use the below compose.
 
 	ReachabilityStatus(modifier = Modifier)
 
 
-If you want only the network state, use the below code.
+If you want only the network state, use the below method.
 
  	val connection by reachabilityState()
 
