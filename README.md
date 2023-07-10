@@ -1,5 +1,7 @@
 # ReachabilityCompose
 
+[![Maven Central](https://img.shields.io/maven-central/v/me.qoomon/maven-git-versioning-extension.svg)](https://search.maven.org/artifact/me.qoomon/maven-git-versioning-extension)
+
 ### ReachabilityCompose makes it easier to implement network listener in Jetpack compose. You can implement the listener with a single line of code without any additional configuration or permissions.
 
 
