@@ -1,7 +1,7 @@
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
-task androidSourcesJar(type: Jar) {
+tasks.register('androidSourcesJar', Jar) {
     archiveClassifier.set('sources')
     if (project.plugins.findPlugin("com.android.library")) {
         from android.sourceSets.main.java.srcDirs
@@ -9,6 +9,9 @@ task androidSourcesJar(type: Jar) {
         from sourceSets.main.java.srcDirs
     }
 }
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
 artifacts {
     archives androidSourcesJar
@@ -67,8 +70,6 @@ afterEvaluate {
         }
     }
 }
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
 def keyId = properties.getProperty('signing.keyId')
 def password = properties.getProperty('signing.password')
 def secretKeyRingFile = properties.getProperty('signing.secretKeyRingFile')
